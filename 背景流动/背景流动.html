@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>背景流动</title>
+    <style type="text/css">
+    html,body{
+        margin: 0px;
+        padding: 0px;
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        background-image: linear-gradient(125deg,#3498db,#1abc9c,#9b59b6,#e67e22,#e74c3c);
+        background-size: 400%;
+        animation: Effect 15s infinite ease-in-out;
+        font-size: 22px;
+        text-transform: uppercase;
+        color: white;
+        font-family: "montserrat";
+        letter-spacing: 2px;
+    }
+    @keyframes Effect {
+        0%{
+            background-position: 0% 50%;
+        }
+        50%{
+            background-position: 100% 50%;
+        }
+        100%{
+            background-position: 0% 50%;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        It snowed in Wuhan today —— 2020-1-09
+    </div>
+</body>
+</html>

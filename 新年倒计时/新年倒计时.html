@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新年计时</title>
+</head>
+<style type="text/css">
+    html,
+    body {
+        font-family: "Times New Roman",Times,serif;
+        text-transform: uppercase;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    body {
+        background-image: url("http://attachments.gfan.com/forum/attachments2/201301/29/1256236ax4jx99h0m2amxm.jpg");
+        background-attachment: fixed;
+        background-blend-mode: hard-light;
+    }
+
+    .Container {
+        position: absolute;
+        top: 80px;
+        left: 100px;
+        right: 100px;
+        bottom: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-attachment: fixed;
+        background-image: url("http://attachments.gfan.com/forum/attachments2/201301/29/1256236ax4jx99h0m2amxm.jpg");
+        flex-direction: column;
+        box-shadow: 0px 50px 50px rgba(0, 0, 0, 0.5),
+            0 0 0 100px rgba(0, 0, 0, .1);
+
+    }
+
+    .Container h2 span {
+        display: block;
+        font-weight: 350;
+        font-size: 0.2em;
+        letter-spacing: 6px;
+        color: #3e8096;
+    }
+
+    .Container h2 {
+        flex-direction: column;
+        text-align: center;
+        line-height: 0.7em;
+        color: #0c134b;
+        margin-top: -50px;
+        font-size: 9em;
+    }
+
+    .Centent {
+        margin-top: 20px;
+        display: flex;
+    }
+
+    .Centent div {
+        width: 100px;
+        height: 100px;
+        margin: 0px 15px;
+        background-image: linear-gradient(180deg, #377c8b, #478c9b, #5096a0, #68a3a3, #bec8c1);
+        line-height: 100px;
+        color: #e4eae3;
+        text-align: center;
+        position: relative;
+        font-size: 3em;
+        font-weight: 500;
+        border-radius: 3px;
+    }
+
+    .Centent div::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 25px;
+        bottom: -24px;
+        left: 0px;
+        line-height: 25px;
+        font-weight: 300;
+        background-color: #99c5be;
+        color: e4eae3;
+    }
+
+    .Centent div.Day::before {
+        content: "Day";
+        font-size: 0.4em;
+    }
+
+    .Centent div.Time::before {
+        content: "Time";
+        font-size: 0.4em;
+    }
+
+    .Centent div.Branch::before {
+        content: "Branch";
+        font-size: 0.4em;
+    }
+
+    .Centent div.Second::before {
+        content: "Second";
+        font-size: 0.4em;
+    }
+</style>
+
+<body>
+    <div class="Container">
+        <h2><span>Countdown to New Year</span>2020</h2>
+        <div class="Centent">
+            <div id="Day" class="Day">N/A</div>
+            <div id="Time" class="Time">N/A</div>
+            <div id="Branch" class="Branch">N/A</div>
+            <div id="Second" class="Second">N/A</div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var CountDate = new Date('Jan 25, 2020 00:00:00').getTime();
+        function NewYear() {
+            var now = new Date().getTime();
+            var gap = CountDate - now;
+            var Second = 1000;
+            var minute = Second * 60;
+            var hour = minute * 60;
+            var Day = hour * 24;
+            var d = Math.floor(gap / (Day));
+            var h = Math.floor((gap % (Day)) / (hour));
+            var m = Math.floor((gap % (hour)) / (minute));
+            var s = Math.floor((gap % (minute)) / (Second));
+
+            document.getElementById('Day').innerHTML = d;
+            document.getElementById('Time').innerHTML = h;
+            document.getElementById('Branch').innerHTML = m;
+            document.getElementById('Second').innerHTML = s;
+        }
+        setInterval(function () {
+            NewYear();
+        }, 1000)
+    </script>
+</body>
+
+</html>

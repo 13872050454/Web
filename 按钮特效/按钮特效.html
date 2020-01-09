@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>按钮特效</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            background-color: #353b48;
+            /* background-image: url("img001.jpg");
+            filter: blur(1px); */
+        }
+
+        .content {
+            width: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: wrap;
+        }
+
+        .btn {
+            margin: 10px;
+            width: 200px;
+            height: 60px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: 700;
+            background: none;
+            color: #3498db;
+            border: 4px solid;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .btn::after,
+        .btn::before {
+            content: "";
+            width: 14px;
+            height: 4px;
+            position: absolute;
+            background: #353b48;
+            transform: skewX(50deg);
+            transition: .4s;
+        }
+
+        .btn::after {
+            bottom: -4px;
+            right: 10%;
+        }
+
+        .btn::before {
+            top: -4px;
+            left: 10%;
+        }
+
+        .btn:hover::before {
+            left: 80%;
+        }
+
+        .btn:hover::after {
+            right: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <button class="btn">Hover Me</button>
+            <button style="color: #FFA000; border-radius: 20px;" class="btn">Hover Me</button>
+            <button style="color: #388E3C;" class="btn">Hover Me</button>
+            <button style="color: #E64A19;" class="btn">Hover Me</button>
+        </div>
+    </div>
+    <script type="text/javascript"></script>
+</body>
+
+</html>
